@@ -1,0 +1,40 @@
+import * as variables from "src/variables";
+import styled from "styled-components";
+
+export const StyledButton = styled.button`
+  background-color: ${variables.white};
+  color: ${variables.quaternaryColor};
+  padding: 10px 20px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  border: 1px solid ${variables.white};
+  &:hover {
+    background-color: ${variables.secondaryColor};
+    color: ${variables.white};
+    border: 1px solid ${variables.white};
+  }
+  &.bordered {
+    border: 1px solid ${variables.secondaryColor};
+    color: ${variables.secondaryColor};
+    &:hover {
+      color: ${variables.white};
+    }
+  }
+  &.inverse {
+    background-color: ${variables.secondaryColor};
+    border: 1px solid ${variables.secondaryColor};
+    color: ${variables.white};
+    &:hover {
+      background-color: ${variables.white};
+      color: ${variables.secondaryColor};
+      border: 1px solid ${variables.secondaryColor};
+    }
+    &.small {
+      padding: 5px 10px 5px 10px;
+    }
+  }
+`;
