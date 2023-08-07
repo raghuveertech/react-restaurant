@@ -14,8 +14,8 @@ This is a simple React Single Page Application (SPA) developed for learning purp
 
 **Installation**
 
-1. Clone the repository: `git clone https://github.com/your-username/restaurant-app.git`
-2. Navigate to the project directory: `cd restaurant-app`
+1. Clone the repository: `git clone https://github.com/raghuveertech/react-restaurant.git`
+2. Navigate to the project directory: `cd react-restaurant`
 3. Install dependencies: `npm install`
 
 **Usage**
