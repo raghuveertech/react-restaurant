@@ -13,6 +13,7 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [showCartPopup, setShowCartPopup] = useState(false);
+  const [showCheckoutPopup, setShowCheckoutPopup] = useState(false);
 
   const addToCart = (item) => {
     setCartItems((prevCartItems) => {
@@ -78,16 +79,22 @@ function App() {
   };
 
   const proceedToCheckout = () => {
-    console.log(cartItems);
+    setShowCartPopup(false);
+    setShowCheckoutPopup(true);
+  };
+
+  const backToCart = () => {
+    setShowCartPopup(true);
+    setShowCheckoutPopup(false);
   };
 
   useEffect(() => {
-    if (showCartPopup) {
+    if (showCartPopup || showCheckoutPopup) {
       document.querySelector("body").classList.add("popup-open");
     } else {
       document.querySelector("body").classList.remove("popup-open");
     }
-  }, [showCartPopup]);
+  }, [showCartPopup, showCheckoutPopup]);
 
   useEffect(() => {
     fetch(
@@ -154,8 +161,13 @@ function App() {
           proceedToCheckout={proceedToCheckout}
         />
       ) : null}
-
-      <CheckoutPopup countries={countries} />
+      {showCheckoutPopup ? (
+        <CheckoutPopup
+          backToCart={backToCart}
+          countries={countries}
+          setShowCheckoutPopup={setShowCheckoutPopup}
+        />
+      ) : null}
     </>
   );
 }
