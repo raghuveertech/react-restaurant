@@ -57,6 +57,6 @@ This project was created solely for learning purposes and does not represent an 
 
 **Contact**
 
-For any questions or feedback, feel free to contact us at example@example.com or open an issue in the repository.
+For any questions or feedback, feel free to contact us at raghuveerp25@gmail.com or open an issue in the repository.
 
 Thank you for using our dummy restaurant app! Enjoy exploring and learning!
