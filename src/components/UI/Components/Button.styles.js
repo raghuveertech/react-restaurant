@@ -2,8 +2,8 @@ import * as variables from "src/variables";
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
-  background-color: ${variables.white};
-  color: ${variables.quaternaryColor};
+  background-color: ${variables.primaryColor};
+  color: ${variables.white};
   padding: 10px 20px;
   border: 0;
   cursor: pointer;
@@ -11,11 +11,11 @@ export const StyledButton = styled.button`
   font-size: 14px;
   text-transform: uppercase;
   transition: all 0.3s;
-  border: 1px solid ${variables.white};
+  border: 1px solid ${variables.primaryColor};
   &:hover {
-    background-color: ${variables.secondaryColor};
-    color: ${variables.white};
-    border: 1px solid ${variables.white};
+    background-color: ${variables.white};
+    color: ${variables.primaryColor};
+    border: 1px solid ${variables.primaryColor};
   }
   &.bordered {
     border: 1px solid ${variables.secondaryColor};

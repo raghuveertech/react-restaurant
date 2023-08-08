@@ -6,6 +6,7 @@ import { scrollToSection } from "src/utilityFunctions";
 import Menu from "./components/Menu/Menu";
 import CartPopup from "./components/CartPopup/CartPopup";
 import CheckoutPopup from "./components/CheckoutPopup/CheckoutPopup";
+import { StyledButton } from "./components/UI/Components/Button.styles";
 
 function App() {
   const menuRef = useRef();
@@ -126,19 +127,25 @@ function App() {
       <GlobalStyles />
       <Header cartItems={cartItems} setShowCartPopup={setShowCartPopup} />
       <StyledHeroContainer>
-        <img src={variables.mainBannerImage} alt="React Restaurant" />
-        <h1 className="hero-content">
-          Delicious Food,
-          <br />
-          Delivered to You!
-        </h1>
-        <a
-          href="#"
-          className="view-menu"
-          onClick={(e) => scrollToSection(e, menuRef.current, 150)}
-        >
-          View Menu
-        </a>
+        <div className="hero-inner">
+          <div className="left">
+            <h1 className="hero-heading">
+              Delicious Food,
+              <br />
+              Delivered to You!
+            </h1>
+            <StyledButton
+              href="#"
+              className="view-menu"
+              onClick={(e) => scrollToSection(e, menuRef.current, 150)}
+            >
+              View Menu
+            </StyledButton>
+          </div>
+          <div className="right">
+            <img src={variables.mainBannerImage} alt="React Restaurant" />
+          </div>
+        </div>
       </StyledHeroContainer>
       <div ref={menuRef}>
         <Menu
