@@ -8,7 +8,9 @@ export const StyledMenuContainer = styled.section`
     margin-bottom: 20px;
   }
   .menu-items {
-    max-width: 800px;
+    max-width: 1240px;
+    display: flex;
+    flex-wrap: wrap;
     margin: auto;
   }
 `;

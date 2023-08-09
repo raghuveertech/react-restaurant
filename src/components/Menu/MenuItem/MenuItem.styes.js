@@ -2,35 +2,50 @@ import styled from "styled-components";
 import * as variables from "src/variables";
 
 export const StyledMenuItem = styled.div`
-  background-color: ${variables.secondaryColor};
   display: flex;
+  flex: 0 0 50%;
   justify-content: space-between;
   padding: 15px 20px;
   border-radius: 10px;
   margin-bottom: 30px;
   align-items: center;
+  .left {
+    flex: 0 0 calc(100% - 200px);
+    &__top {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
   .itemName {
-    font-size: 35px;
-    line-height: 55px;
-    margin-bottom: 0;
-    font-family: ${variables.secondaryFont};
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: ${variables.primaryFont};
     display: flex;
-    letter-spacing: 2px;
+  }
+  .itemPrice {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: right;
+    margin-bottom: 5px;
   }
   .description {
+    font-size: 14px;
+    line-height: 20px;
+    font-style: italic;
     margin-bottom: 0;
+    color: ${variables.darkGray};
   }
   .right {
-    .itemPrice {
-      font-size: 25px;
-      line-height: 40px;
-      text-align: right;
-      margin-bottom: 5px;
-    }
+    flex: 0 0 200px;
+    text-align: right;
     .item-quantity {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
+      height: 38px;
       button {
         width: 30px;
         font-size: 24px;
@@ -48,7 +63,7 @@ export const StyledMenuItem = styled.div`
         width: 20px;
         margin-bottom: 0;
         letter-spacing: 2px;
-        color: ${variables.white};
+        color: ${variables.secondaryColor};
         text-align: center;
       }
     }

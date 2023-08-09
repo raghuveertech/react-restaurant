@@ -14,7 +14,9 @@ const Menu = (props) => {
   return (
     <>
       <StyledMenuContainer>
-        <h2>Menu</h2>
+        <h2>
+          <span>Check our tasty</span> Menu
+        </h2>
         <div className="menu-items">
           {menuItems.map((menuItem) => {
             return (

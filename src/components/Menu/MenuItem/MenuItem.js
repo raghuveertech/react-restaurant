@@ -30,11 +30,13 @@ const MenuItem = (props) => {
   return (
     <StyledMenuItem>
       <div className="left">
-        <p className="itemName white">{itemName}</p>
-        <p className="description white">{description}</p>
+        <div className="left__top">
+          <p className="itemName">{itemName}</p>
+          <p className="itemPrice dark">₹{price}</p>
+        </div>
+        <p className="description dark">{description}</p>
       </div>
       <div className="right">
-        <p className="itemPrice white">₹{price}</p>
         {cartItem ? (
           <div className="item-quantity">
             <button onClick={() => decrementQuantity(id)}>-</button>{" "}
@@ -42,7 +44,9 @@ const MenuItem = (props) => {
             <button onClick={() => incrementQuantity(id)}>+</button>
           </div>
         ) : (
-          <Button onClick={addToCartHandler}>Add To Cart</Button>
+          <Button className="inverse" onClick={addToCartHandler}>
+            Add To Cart
+          </Button>
         )}
       </div>
     </StyledMenuItem>

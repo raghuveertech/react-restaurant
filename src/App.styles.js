@@ -22,6 +22,9 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 60px;
     font-weight: normal;
     color: ${variables.primaryColor};
+    span {
+      color: ${variables.secondaryColor};
+    }
     &.white {
       color: ${variables.white};
     }
@@ -34,6 +37,9 @@ export const GlobalStyles = createGlobalStyle`
     color: ${variables.primaryColor};
     &.white {
       color: ${variables.white};
+    }
+    &.dark {
+      color: ${variables.secondaryColor};
     }
   }
   .container {
