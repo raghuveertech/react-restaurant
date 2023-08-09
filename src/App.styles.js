@@ -53,9 +53,9 @@ export const GlobalStyles = createGlobalStyle`
 
 export const StyledHeroContainer = styled.div`
   width: 100%;
-  height: calc(100vh - 96px);
+  height: calc(100vh - 84px);
   background-color: ${variables.quaternaryColor};
-  margin-top: 96px;
+  margin-top: 84px;
   display: flex;
   align-items: center;
   justify-content: center;

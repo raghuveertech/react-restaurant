@@ -14,6 +14,7 @@ export const StyledHeader = styled.header`
   z-index: 3;
   .logo {
     width: 150px;
+    display: flex;
     img {
       width: 100%;
     }
