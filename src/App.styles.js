@@ -54,29 +54,40 @@ export const GlobalStyles = createGlobalStyle`
 export const StyledHeroContainer = styled.div`
   width: 100%;
   height: calc(100vh - 84px);
-  background-color: ${variables.quaternaryColor};
+  background-position: bottom left;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-image: url("images/shape.png");
   margin-top: 84px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: right;
   .hero-inner {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
   }
   .left {
-    padding: 0 20px;
+    padding: 0 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     .hero-heading {
-      color: ${variables.secondaryColor};
+      color: #212529;
       margin-bottom: 20px;
+      font-size: 54px;
+      line-height: 60px;
+    }
+    .view-menu {
+      width: 150px;
     }
   }
   .right {
-    padding: 0 20px;
+    display: flex;
+    align-items: flex-end;
     img {
-      width: 400px;
+      height: 90%;
+      width: auto;
+      filter: drop-shadow(-3px 0px 5px #2125295e);
     }
   }
 `;

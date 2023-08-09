@@ -2,11 +2,11 @@ import styled from "styled-components";
 import * as variables from "src/variables";
 
 export const StyledCart = styled.div`
-  background-color: ${variables.primaryColor};
-  padding: 10px 20px;
+  background-color: ${variables.darkGray};
+  padding: 10px 30px;
   display: flex;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 40px;
   color: ${variables.white};
   cursor: pointer;
   font-weight: 700;

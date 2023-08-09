@@ -6,6 +6,7 @@ export const quaternaryColor = "#eee";
 export const black = "#000";
 export const white = "#fff";
 export const gray = "#a4a4a4";
+export const darkGray = "#606060";
 export const lightGray = "#f5f5f5";
 export const red = "#ff0000";
 
