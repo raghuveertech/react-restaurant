@@ -4,11 +4,11 @@ import styled from "styled-components";
 export const StyledButton = styled.button`
   background-color: ${variables.primaryColor};
   color: ${variables.white};
-  padding: 10px 20px;
+  padding: 8px 15px;
   border: 0;
   cursor: pointer;
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: uppercase;
   transition: all 0.3s;
   border: 1px solid ${variables.primaryColor};

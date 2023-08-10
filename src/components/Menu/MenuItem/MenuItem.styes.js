@@ -5,12 +5,12 @@ export const StyledMenuItem = styled.div`
   display: flex;
   flex: 0 0 50%;
   justify-content: space-between;
-  padding: 15px 20px;
+  padding: 15px 60px;
   border-radius: 10px;
   margin-bottom: 30px;
   align-items: center;
   .left {
-    flex: 0 0 calc(100% - 200px);
+    flex: 0 0 calc(100% - 150px);
     &__top {
       display: flex;
       justify-content: space-between;
@@ -39,7 +39,7 @@ export const StyledMenuItem = styled.div`
     color: ${variables.darkGray};
   }
   .right {
-    flex: 0 0 200px;
+    flex: 0 0 150px;
     text-align: right;
     .item-quantity {
       display: flex;
