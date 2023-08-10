@@ -265,12 +265,10 @@ const CheckoutPopup = (props) => {
         <div className="cart-footer">
           <div className="total-price">Total: ₹{"200"}</div>
           <div className="cart-footer-buttons">
-            <StyledButton className="bordered" onClick={() => backToCart()}>
+            <StyledButton className="inverse" onClick={() => backToCart()}>
               Back To Cart
             </StyledButton>
-            <StyledButton className="inverse" onClick={() => placeOrder()}>
-              Order
-            </StyledButton>
+            <StyledButton onClick={() => placeOrder()}>Order</StyledButton>
           </div>
         </div>
       </div>

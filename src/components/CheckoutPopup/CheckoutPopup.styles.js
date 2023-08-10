@@ -38,7 +38,7 @@ export const StyledCheckoutPopup = styled.section`
     height: 260px;
     overflow: auto;
     padding: 10px 20px 10px 20px;
-    background-color: ${variables.lightGray};
+    background-color: ${variables.lightBlue};
 
     /* width */
     &::-webkit-scrollbar {
@@ -47,7 +47,7 @@ export const StyledCheckoutPopup = styled.section`
 
     /* Track */
     &::-webkit-scrollbar-track {
-      background: ${variables.lightGray};
+      background: ${variables.lightBlue};
     }
 
     /* Handle */
@@ -110,6 +110,9 @@ export const StyledCheckoutPopup = styled.section`
       display: flex;
       justify-content: space-between;
       padding: 20px 0 10px 0;
+      button {
+        font-size: 14px;
+      }
     }
   }
 `;
