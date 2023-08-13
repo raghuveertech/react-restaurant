@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledMenuContainer } from "./Menu.styles";
 import MenuItem from "./MenuItem/MenuItem";
-const Menu = (props) => {
+const MenuSection = (props) => {
   const {
     menuItems,
     cartItems,
@@ -38,4 +38,4 @@ const Menu = (props) => {
   );
 };
 
-export default Menu;
+export default MenuSection;

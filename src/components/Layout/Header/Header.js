@@ -1,10 +1,11 @@
 import React from "react";
+import { scrollToSection } from "src/utilityFunctions";
 import { StyledHeader } from "./Header.styles";
 import Cart from "./Cart/Cart";
 import * as variables from "src/variables";
 
 const Header = (props) => {
-  const { cartItems, setShowCartPopup } = props;
+  const { cartItems, setShowCartPopup, aboutRef } = props;
   return (
     <StyledHeader>
       <div className="logo">
@@ -18,7 +19,11 @@ const Header = (props) => {
             </a>
           </li>
           <li>
-            <a href="" className="">
+            <a
+              href="#"
+              className=""
+              onClick={(e) => scrollToSection(e, aboutRef.current, 65)}
+            >
               About
             </a>
           </li>

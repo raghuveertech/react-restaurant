@@ -15,6 +15,7 @@ export const lightBlue = "#f4fffd";
 export const mainLogo = "/images/main-logo.png";
 export const cartIcon = "/images/cart-icon.png";
 export const mainBannerImage = "/images/hero-food.png";
+export const aboutImage = "/images/burgers-with-fries-and-tomatoes.jpeg";
 
 //fonts
 

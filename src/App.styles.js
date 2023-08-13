@@ -34,7 +34,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 15px;
-    color: ${variables.primaryColor};
+    color: ${variables.secondaryColor};
     &.white {
       color: ${variables.white};
     }
@@ -53,47 +53,6 @@ export const GlobalStyles = createGlobalStyle`
     }
     50% {
       bottom: -20px;
-    }
-  }
-`;
-
-export const StyledHeroContainer = styled.div`
-  width: 100%;
-  height: calc(100vh - 84px);
-  background-position: bottom left;
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-image: url("images/shape.png");
-  margin-top: 84px;
-  display: flex;
-  justify-content: right;
-  .hero-inner {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  .left {
-    padding: 0 200px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    .hero-heading {
-      color: #212529;
-      margin-bottom: 20px;
-      font-size: 54px;
-      line-height: 60px;
-    }
-    .view-menu {
-      width: 150px;
-    }
-  }
-  .right {
-    display: flex;
-    align-items: flex-end;
-    img {
-      height: 90%;
-      width: auto;
-      filter: drop-shadow(-3px 0px 5px #2125295e);
     }
   }
 `;

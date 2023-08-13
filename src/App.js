@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "./components/Layout/Header/Header";
-import { GlobalStyles, StyledHeroContainer } from "./App.styles";
-import * as variables from "src/variables";
-import { scrollToSection } from "src/utilityFunctions";
-import Menu from "./components/Menu/Menu";
+import { GlobalStyles } from "./App.styles";
+import MenuSection from "./components/HomeComponents/MenuSection/MenuSection";
 import CartPopup from "./components/CartPopup/CartPopup";
 import CheckoutPopup from "./components/CheckoutPopup/CheckoutPopup";
-import { StyledButton } from "./components/UI/Components/Button.styles";
+import HeroSection from "./components/HomeComponents/HeroSection/HeroSection";
+import AboutSection from "./components/HomeComponents/AboutSection/AboutSection";
 
 function App() {
   const menuRef = useRef();
+  const aboutRef = useRef();
   const [menu, setMenu] = useState([]);
   const [countries, setCountries] = useState([]);
   const [cartItems, setCartItems] = useState([]);
@@ -125,30 +125,17 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <Header cartItems={cartItems} setShowCartPopup={setShowCartPopup} />
-      <StyledHeroContainer>
-        <div className="hero-inner">
-          <div className="left">
-            <h1 className="hero-heading">
-              Delicious Food,
-              <br />
-              Delivered to You!
-            </h1>
-            <StyledButton
-              href="#"
-              className="view-menu"
-              onClick={(e) => scrollToSection(e, menuRef.current, 150)}
-            >
-              View Menu
-            </StyledButton>
-          </div>
-          <div className="right">
-            <img src={variables.mainBannerImage} alt="React Restaurant" />
-          </div>
-        </div>
-      </StyledHeroContainer>
+      <Header
+        cartItems={cartItems}
+        setShowCartPopup={setShowCartPopup}
+        aboutRef={aboutRef}
+      />
+      <HeroSection menuRef={menuRef} />
+      <div ref={aboutRef}>
+        <AboutSection />
+      </div>
       <div ref={menuRef}>
-        <Menu
+        <MenuSection
           menuItems={menu}
           cartItems={cartItems}
           addToCart={addToCart}
