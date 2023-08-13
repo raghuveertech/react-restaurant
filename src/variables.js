@@ -9,6 +9,7 @@ export const gray = "#a4a4a4";
 export const darkGray = "#606060";
 export const lightGray = "#f5f5f5";
 export const red = "#ff0000";
+export const success = "#2f7c2f";
 export const lightBlue = "#f4fffd";
 
 export const mainLogo = "/images/main-logo.png";

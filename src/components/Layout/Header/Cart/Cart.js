@@ -14,7 +14,6 @@ const Cart = (props) => {
       }}
     >
       <CartIcon src={variables.cartIcon} alt="Cart" />
-      Your Cart
       <CartCount>{totalQuantity}</CartCount>
     </StyledCart>
   );

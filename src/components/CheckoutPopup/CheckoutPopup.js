@@ -3,7 +3,20 @@ import { StyledCheckoutPopup } from "./CheckoutPopup.styles";
 import { StyledButton } from "../UI/Components/Button.styles";
 
 const CheckoutPopup = (props) => {
-  const { countries, backToCart, setShowCheckoutPopup } = props;
+  const {
+    countries,
+    backToCart,
+    setShowCheckoutPopup,
+    cartItems,
+    setCartItems,
+  } = props;
+
+  const [orderSuccess, setOrderSuccess] = useState(false);
+
+  let cartTotal = 0;
+  cartItems.forEach((cartItem) => {
+    cartTotal += cartItem.qty * cartItem.price;
+  });
 
   const [formFields, setFormFields] = useState({
     firstName: "",
@@ -158,7 +171,34 @@ const CheckoutPopup = (props) => {
 
     let isFormValid = validateFormFields();
     if (isFormValid) {
-      console.log(formFields); // form submission
+      let checkoutObj = {
+        userInfo: formFields,
+        itemsInfo: cartItems,
+        cartTotal: cartTotal,
+      };
+
+      fetch(
+        "https://react-restaurant-app-3a1e9-default-rtdb.firebaseio.com/orders.json",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(checkoutObj),
+        }
+      )
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
+          }
+        })
+        .then((data) => {
+          if (data.name) {
+            setOrderSuccess(true);
+            setCartItems([]);
+          }
+        });
     }
   };
 
@@ -174,103 +214,111 @@ const CheckoutPopup = (props) => {
         >
           &times;
         </a>
-        <div className="checkout-items">
-          <form className="checkout-form" onSubmit={placeOrder}>
-            <div className="row">
-              <div className="form-group half-width">
-                <label htmlFor="firstName">First Name</label>
-                <input
-                  type={"text"}
-                  id="firstName"
-                  name="firstName"
-                  placeholder="First Name"
-                  value={formFields.firstName}
-                  onChange={formFieldsHandler}
-                />
-                {formFieldsErrors.firstNameError ? (
-                  <p className="error">{formFieldsErrors.firstNameError}</p>
-                ) : null}
-              </div>
-              <div className="form-group half-width">
-                <label htmlFor="lastName">Last Name</label>
-                <input
-                  type={"text"}
-                  id="lastName"
-                  name="lastName"
-                  placeholder="Last Name"
-                  value={formFields.lastName}
-                  onChange={formFieldsHandler}
-                />
-                {formFieldsErrors.lastNameError ? (
-                  <p className="error">{formFieldsErrors.lastNameError}</p>
-                ) : null}
+        {orderSuccess ? (
+          <p className="orderSuccess">
+            Thank you for ordering. Our team will contact you soon.
+          </p>
+        ) : (
+          <>
+            <div className="checkout-items">
+              <form className="checkout-form" onSubmit={placeOrder}>
+                <div className="row">
+                  <div className="form-group half-width">
+                    <label htmlFor="firstName">First Name</label>
+                    <input
+                      type={"text"}
+                      id="firstName"
+                      name="firstName"
+                      placeholder="First Name"
+                      value={formFields.firstName}
+                      onChange={formFieldsHandler}
+                    />
+                    {formFieldsErrors.firstNameError ? (
+                      <p className="error">{formFieldsErrors.firstNameError}</p>
+                    ) : null}
+                  </div>
+                  <div className="form-group half-width">
+                    <label htmlFor="lastName">Last Name</label>
+                    <input
+                      type={"text"}
+                      id="lastName"
+                      name="lastName"
+                      placeholder="Last Name"
+                      value={formFields.lastName}
+                      onChange={formFieldsHandler}
+                    />
+                    {formFieldsErrors.lastNameError ? (
+                      <p className="error">{formFieldsErrors.lastNameError}</p>
+                    ) : null}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="form-group full-width">
+                    <label htmlFor="email">Email</label>
+                    <input
+                      type={"email"}
+                      id="email"
+                      name="email"
+                      placeholder="Email"
+                      value={formFields.email}
+                      onChange={formFieldsHandler}
+                    />
+                    {formFieldsErrors.emailError ? (
+                      <p className="error">{formFieldsErrors.emailError}</p>
+                    ) : null}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="form-group full-width">
+                    <label htmlFor="phone">Phone</label>
+                    <input
+                      type={"text"}
+                      id="phone"
+                      name="phone"
+                      placeholder="Phone"
+                      value={formFields.phone}
+                      onChange={formFieldsHandler}
+                    />
+                    {formFieldsErrors.phoneError ? (
+                      <p className="error">{formFieldsErrors.phoneError}</p>
+                    ) : null}
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="form-group full-width">
+                    <label htmlFor="country">Country</label>
+                    <select
+                      id="country"
+                      onChange={formFieldsHandler}
+                      value={formFields.country}
+                    >
+                      <option>Select Country</option>
+                      {countries.map((country) => {
+                        return (
+                          <option key={country} value={country}>
+                            {country}
+                          </option>
+                        );
+                      })}
+                    </select>
+                    {formFieldsErrors.countryError ? (
+                      <p className="error">{formFieldsErrors.countryError}</p>
+                    ) : null}
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div className="cart-footer">
+              <div className="total-price">Total: ₹{cartTotal}</div>
+              <div className="cart-footer-buttons">
+                <StyledButton className="inverse" onClick={() => backToCart()}>
+                  Back To Cart
+                </StyledButton>
+                <StyledButton onClick={() => placeOrder()}>Order</StyledButton>
               </div>
             </div>
-            <div className="row">
-              <div className="form-group full-width">
-                <label htmlFor="email">Email</label>
-                <input
-                  type={"email"}
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formFields.email}
-                  onChange={formFieldsHandler}
-                />
-                {formFieldsErrors.emailError ? (
-                  <p className="error">{formFieldsErrors.emailError}</p>
-                ) : null}
-              </div>
-            </div>
-            <div className="row">
-              <div className="form-group full-width">
-                <label htmlFor="phone">Phone</label>
-                <input
-                  type={"text"}
-                  id="phone"
-                  name="phone"
-                  placeholder="Phone"
-                  value={formFields.phone}
-                  onChange={formFieldsHandler}
-                />
-                {formFieldsErrors.phoneError ? (
-                  <p className="error">{formFieldsErrors.phoneError}</p>
-                ) : null}
-              </div>
-            </div>
-            <div className="row">
-              <div className="form-group full-width">
-                <label htmlFor="country">Country</label>
-                <select
-                  id="country"
-                  onChange={formFieldsHandler}
-                  value={formFields.country}
-                >
-                  <option>Select Country</option>
-                  {countries.map((country) => {
-                    return (
-                      <option key={country} value={country}>
-                        {country}
-                      </option>
-                    );
-                  })}
-                </select>
-                {formFieldsErrors.countryError ? (
-                  <p className="error">{formFieldsErrors.countryError}</p>
-                ) : null}
-              </div>
-            </div>
-          </form>
-        </div>
-        <div className="cart-footer">
-          <div className="total-price">Total: ₹{"200"}</div>
-          <div className="cart-footer-buttons">
-            <StyledButton className="inverse" onClick={() => backToCart()}>
-              Back To Cart
-            </StyledButton>
-            <StyledButton onClick={() => placeOrder()}>Order</StyledButton>
-          </div>
-        </div>
+          </>
+        )}
       </div>
     </StyledCheckoutPopup>
   );

@@ -13,7 +13,7 @@ export const StyledHeader = styled.header`
   top: 0;
   z-index: 3;
   .logo {
-    width: 150px;
+    width: 125px;
     display: flex;
     img {
       width: 100%;

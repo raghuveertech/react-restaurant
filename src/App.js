@@ -173,6 +173,8 @@ function App() {
           backToCart={backToCart}
           countries={countries}
           setShowCheckoutPopup={setShowCheckoutPopup}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
         />
       ) : null}
     </>

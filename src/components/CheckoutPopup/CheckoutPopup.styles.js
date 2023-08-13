@@ -9,6 +9,12 @@ export const StyledCheckoutPopup = styled.section`
   z-index: 5;
   background-color: rgb(0 0 0 / 25%);
   backdrop-filter: blur(5px);
+  .orderSuccess {
+    text-align: center;
+    margin-top: 20px;
+    color: ${variables.success};
+    font-size: 22px;
+  }
   .popup-inner {
     position: absolute;
     top: 50%;
