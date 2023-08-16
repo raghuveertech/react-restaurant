@@ -1,7 +1,8 @@
 import React from "react";
-import { StyledButton } from "../UI/Components/Button.styles";
+import Popup from "../UI/Components/Popup";
+import { StyledCartWrapper } from "./CartPopup.styles";
 import CartItem from "./CartItem/CartItem";
-import { StyledCartPopup } from "./CartPopup.styles";
+
 const CartPopup = (props) => {
   const {
     cartItems,
@@ -17,12 +18,15 @@ const CartPopup = (props) => {
   });
 
   return (
-    <StyledCartPopup>
-      <div className="popup-inner">
-        <h2>Cart</h2>
-        <a className="popup-close" onClick={() => setShowCartPopup(false)}>
-          &times;
-        </a>
+    <Popup
+      closeBtnAction={() => setShowCartPopup(false)}
+      mainHeading={"Cart"}
+      btn1Text={"Close"}
+      btn1Action={() => setShowCartPopup(false)}
+      btn2Text={"Checkout"}
+      btn2Action={() => proceedToCheckout()}
+    >
+      <StyledCartWrapper>
         <div className="cart-items">
           {cartItems.map((cartItem) => {
             return (
@@ -35,22 +39,9 @@ const CartPopup = (props) => {
             );
           })}
         </div>
-        <div className="cart-footer">
-          <div className="total-price">Total: ₹{cartTotal}</div>
-          <div className="cart-footer-buttons">
-            <StyledButton
-              className="inverse"
-              onClick={() => setShowCartPopup(false)}
-            >
-              Close
-            </StyledButton>
-            <StyledButton onClick={() => proceedToCheckout()}>
-              Checkout
-            </StyledButton>
-          </div>
-        </div>
-      </div>
-    </StyledCartPopup>
+        <div className="total-price">Total: ₹{cartTotal}</div>
+      </StyledCartWrapper>
+    </Popup>
   );
 };
 

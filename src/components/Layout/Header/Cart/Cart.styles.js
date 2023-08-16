@@ -15,10 +15,10 @@ export const CartIcon = styled.img`
 
 export const CartCount = styled.div`
   position: absolute;
-  top: -15px;
-  right: -15px;
-  width: 25px;
-  height: 25px;
+  top: -12px;
+  right: -12px;
+  width: 20px;
+  height: 20px;
   padding: 0;
   margin-left: 0;
   text-align: center;
@@ -28,6 +28,6 @@ export const CartCount = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
 `;

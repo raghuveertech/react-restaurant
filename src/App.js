@@ -6,6 +6,7 @@ import CartPopup from "./components/CartPopup/CartPopup";
 import CheckoutPopup from "./components/CheckoutPopup/CheckoutPopup";
 import HeroSection from "./components/HomeComponents/HeroSection/HeroSection";
 import AboutSection from "./components/HomeComponents/AboutSection/AboutSection";
+import Popup from "./components/UI/Components/Popup";
 
 function App() {
   const menuRef = useRef();
@@ -164,6 +165,7 @@ function App() {
           setCartItems={setCartItems}
         />
       ) : null}
+      {/* <Popup /> */}
     </>
   );
 }
