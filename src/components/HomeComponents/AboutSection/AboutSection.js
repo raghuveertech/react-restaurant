@@ -9,6 +9,8 @@ const AboutSection = () => {
         <div className="image">
           <div className="image-container">
             <img src={aboutImage} alt={"Burgers With Fries and Tomatoes"} />
+            <div className="image-angle-icon-top"></div>
+            <div className="image-angle-icon-bottom"></div>
           </div>
         </div>
         <div className="text">

@@ -28,6 +28,54 @@ export const StyledAboutSection = styled.section`
           width: 100%;
           height: auto;
         }
+        &:after {
+          position: absolute;
+          background-color: rgb(0 0 0 / 30%);
+          content: "";
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          transition: all 0.3s;
+        }
+        .image-angle-icon-top {
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          top: 50px;
+          left: 50px;
+          background-color: transparent;
+          border-top: 3px solid ${variables.white};
+          border-left: 3px solid ${variables.white};
+          z-index: 2;
+          transition: all 0.3s;
+        }
+        .image-angle-icon-bottom {
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          bottom: 50px;
+          right: 50px;
+          background-color: transparent;
+          border-right: 3px solid ${variables.white};
+          border-bottom: 3px solid ${variables.white};
+          z-index: 2;
+          transition: all 0.3s;
+        }
+        &:hover {
+          &:after {
+            background-color: rgb(0 0 0 / 20%);
+          }
+          .image-angle-icon-top {
+            top: 20px;
+            left: 20px;
+          }
+          .image-angle-icon-bottom {
+            bottom: 20px;
+            right: 20px;
+          }
+        }
       }
     }
     .text {
